@@ -184,12 +184,13 @@
   }
   /* BrainSphere always renders at native 160px (where filaments draw with
      full detail). The .orb-stage is sized 160×160 in layout, then visually
-     scaled by CSS transform to the mount's display size. The browser GPU
-     bilinearly downsamples — high quality, preserves visible filaments. */
+     scaled by CSS transform to fill the mount edge-to-edge — BrainSphere's
+     baseR is 78% of half-width, so we boost scale by 1/0.78 so the
+     filaments reach the mount's clip circle (no dark negative-space ring). */
   .orb-stage {
     width: 160px; height: 160px;
-    position: absolute; top: 0; left: 0;
-    transform-origin: top left;
+    position: absolute; top: 50%; left: 50%;
+    transform-origin: center center;
     background: radial-gradient(ellipse at 50% 40%, #1a2332 0%, #0d1218 60%, #07090d 100%);
   }
   .orb-mount[data-orb="green"] .orb-stage {
@@ -877,14 +878,16 @@
   // BrainSphere ALWAYS renders at native 160px (where it draws gorgeous
   // dense filaments). The .orb-stage is 160×160 in layout, then CSS
   // transform-scale shrinks it to whatever UI size the mount needs.
-  // The browser bilinearly downsamples — preserves filament detail.
+  // FILL_BOOST extends the orb past the basic fit so its 78%-of-radius
+  // filament reach lands at the mount's clip edge — no dark negative ring.
   const NATIVE = 160;
+  const FILL_BOOST = 1.28; // 1 / 0.78 (BrainSphere baseR ratio)
 
   function MiniCortexOrb({ displaySize = 32, tintColor = null }) {
     const dynRef = useOrbRef({ intensity: 1, spinSpeed: 0.18, electrify: 0, nodeElectrify: 0 });
-    const scale = displaySize / NATIVE;
+    const scale = (displaySize / NATIVE) * FILL_BOOST;
     return (
-      <div className="orb-stage" style={{ transform: `scale(${scale})` }}>
+      <div className="orb-stage" style={{ transform: `translate(-50%, -50%) scale(${scale})` }}>
         <BrainSphere
           size={NATIVE}
           seed={7}
