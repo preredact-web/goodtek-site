@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Terms of Service — GoodTek</title>
+<meta name="description" content="GoodTek Terms of Service." />
+<meta name="theme-color" content="#0A0A0B" />
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230A0A0B'/><path d='M8 16 Q12 8 16 16 T24 16' stroke='%23FF4D1F' stroke-width='2.4' fill='none' stroke-linecap='round'/></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0A0A0B; --bg-2: #111114;
+    --line: #1F1F22; --line-2: #2A2A2E;
+    --fg: #ECE8DC; --fg-dim: #A8A498; --fg-mute: #6B6862;
+    --accent: #FF4D1F;
+    --serif: "Instrument Serif", Georgia, serif;
+    --sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+    --mono: "Geist Mono", ui-monospace, Menlo, monospace;
+    --max: 880px;
+    --pad: clamp(20px, 4vw, 56px);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body { font-family: var(--sans); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 100;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.92 0 0 0 0 0.91 0 0 0 0 0.86 0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: overlay; opacity: 0.5;
+  }
+  a { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line-2); }
+  a:hover { text-decoration-color: var(--accent); color: var(--accent); }
+  ::selection { background: var(--accent); color: #0A0A0B; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding-inline: var(--pad); }
+
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(14px) saturate(120%);
+    background: color-mix(in oklab, var(--bg) 78%, transparent);
+    border-bottom: 1px solid var(--line);
+  }
+  nav.top .row {
+    max-width: 1280px; margin: 0 auto; padding-inline: var(--pad);
+    display: flex; align-items: center; justify-content: space-between; height: 64px;
+  }
+  .brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 14px; }
+  .brand a { text-decoration: none; }
+  .brand .mark {
+    width: 22px; height: 22px; display: inline-grid; place-items: center;
+    border: 1px solid var(--line-2); border-radius: 5px;
+    background: linear-gradient(180deg, #15151A, #0E0E11);
+  }
+  .back {
+    font-family: var(--mono); font-size: 12px; color: var(--fg-dim);
+    text-decoration: none; padding: 8px 14px; border: 1px solid var(--line-2); border-radius: 999px;
+  }
+  .back:hover { color: var(--fg); border-color: var(--fg-dim); text-decoration: none; }
+
+  header.doc {
+    padding: clamp(56px, 9vw, 110px) 0 clamp(40px, 6vw, 64px);
+    border-bottom: 1px solid var(--line);
+  }
+  .label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-mute); }
+  header.doc h1 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(40px, 6vw, 76px); line-height: 1; letter-spacing: -0.02em;
+    margin: 16px 0 20px;
+  }
+  header.doc h1 em { font-style: italic; color: var(--fg-dim); }
+  header.doc .meta { font-family: var(--mono); font-size: 12px; color: var(--fg-mute); display: flex; gap: 24px; flex-wrap: wrap; }
+
+  article.doc {
+    padding: clamp(40px, 6vw, 64px) 0 clamp(64px, 9vw, 120px);
+    color: var(--fg-dim);
+    font-size: 16px;
+  }
+  article.doc h2 {
+    font-family: var(--serif); font-weight: 400; color: var(--fg);
+    font-size: clamp(24px, 3vw, 32px); line-height: 1.15; letter-spacing: -0.015em;
+    margin: 56px 0 16px;
+  }
+  article.doc h2 .num {
+    display: inline-block; font-family: var(--mono); font-size: 12px;
+    color: var(--accent); margin-right: 14px; vertical-align: middle;
+    letter-spacing: 0.08em;
+  }
+  article.doc p, article.doc li { text-wrap: pretty; }
+  article.doc ul { padding-left: 22px; }
+  article.doc li { margin-bottom: 8px; }
+  article.doc strong { color: var(--fg); font-weight: 500; }
+
+  footer {
+    padding: 32px 0;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono); font-size: 11px; color: var(--fg-mute);
+    letter-spacing: 0.06em;
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="row">
+    <span class="brand">
+      <a href="index.html" style="display: inline-flex; align-items: center; gap: 10px;">
+        <span class="mark" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 7 Q3.5 2 6 7 T11 7 T13 7" stroke="#FF4D1F" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+        </span>
+        GoodTek
+      </a>
+    </span>
+    <a class="back" href="index.html">← Back to home</a>
+  </div>
+</nav>
+
+<header class="doc">
+  <div class="wrap">
+    <span class="label">Legal</span>
+    <h1>Terms of <em>Service</em></h1>
+    <div class="meta">
+      <span>Effective: January 1, 2026</span>
+      <span>Last updated: January 1, 2026</span>
+    </div>
+  </div>
+</header>
+
+<article class="doc">
+  <div class="wrap">
+
+    <p>These Terms of Service ("Terms") govern your access to and use of the websites, applications, and services provided by <strong>GoodTek LLC</strong>, a Wyoming limited liability company ("GoodTek," "we," "our," or "us"). By accessing or using our Services, you agree to be bound by these Terms. If you do not agree, do not use the Services.</p>
+
+    <h2><span class="num">01</span>Eligibility</h2>
+    <p>You must be at least 13 years old (or the minimum age required in your country) to use the Services. By using the Services, you represent that you meet this requirement and that you have the legal capacity to enter into these Terms.</p>
+
+    <h2><span class="num">02</span>Accounts</h2>
+    <p>Some Services may require you to create an account. You are responsible for keeping your account credentials confidential and for all activity that occurs under your account. You must notify us promptly at <a href="mailto:support@goodtek.co">support@goodtek.co</a> if you suspect unauthorized access.</p>
+
+    <h2><span class="num">03</span>License to use the Services</h2>
+    <p>Subject to your compliance with these Terms, GoodTek grants you a limited, non-exclusive, non-transferable, revocable license to access and use the Services for your personal, non-commercial use. We reserve all rights not expressly granted.</p>
+
+    <h2><span class="num">04</span>Acceptable use</h2>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Use the Services in violation of any applicable law or regulation;</li>
+      <li>Reverse engineer, decompile, or attempt to extract source code from any application, except to the extent permitted by applicable law;</li>
+      <li>Interfere with, disrupt, or attempt to gain unauthorized access to the Services or related systems;</li>
+      <li>Use the Services to transmit malware, harassment, or unlawful content;</li>
+      <li>Use automated means to scrape or collect data from the Services without our written consent.</li>
+    </ul>
+
+    <h2><span class="num">05</span>Your content</h2>
+    <p>You retain all rights to any content you create or upload through the Services ("Your Content"). You grant GoodTek a limited, worldwide, royalty-free license to host, store, transmit, and display Your Content solely as necessary to provide the Services to you. We do not claim ownership of Your Content and we do not use Your Content to train third-party models without your explicit consent.</p>
+
+    <h2><span class="num">06</span>Intellectual property</h2>
+    <p>The Services, including all software, designs, text, graphics, and trademarks, are owned by GoodTek or its licensors and are protected by intellectual property laws. The name "GoodTek" and our logos are trademarks of GoodTek LLC. You may not use them without our prior written permission.</p>
+
+    <h2><span class="num">07</span>Paid services and subscriptions</h2>
+    <p>Some Services may be offered for a fee. Pricing, billing terms, and renewal terms will be presented at the point of purchase. Subscriptions purchased through the Apple App Store are managed by Apple and are subject to Apple's terms; you can manage and cancel subscriptions in your App Store account settings. Except where required by law, fees are non-refundable.</p>
+
+    <h2><span class="num">08</span>Third-party services</h2>
+    <p>The Services may interoperate with third-party platforms, including the Apple App Store. Your use of those platforms is governed by their own terms, and we are not responsible for their content or practices.</p>
+
+    <h2><span class="num">09</span>Termination</h2>
+    <p>You may stop using the Services at any time. We may suspend or terminate your access to the Services if you violate these Terms or if we reasonably believe such action is necessary to protect GoodTek, our users, or third parties. Sections that by their nature should survive termination will survive.</p>
+
+    <h2><span class="num">10</span>Disclaimers</h2>
+    <p>THE SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE SERVICES WILL BE UNINTERRUPTED, ERROR-FREE, OR FREE OF HARMFUL COMPONENTS.</p>
+
+    <h2><span class="num">11</span>Limitation of liability</h2>
+    <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, GOODTEK AND ITS OFFICERS, MEMBERS, EMPLOYEES, AND AGENTS WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS, DATA, OR GOODWILL, ARISING OUT OF OR RELATED TO YOUR USE OF THE SERVICES. OUR TOTAL LIABILITY ARISING OUT OF OR RELATING TO THESE TERMS OR THE SERVICES WILL NOT EXCEED THE GREATER OF (A) THE AMOUNTS YOU PAID US FOR THE SERVICES IN THE TWELVE MONTHS BEFORE THE EVENT GIVING RISE TO LIABILITY, OR (B) ONE HUNDRED U.S. DOLLARS ($100).</p>
+
+    <h2><span class="num">12</span>Indemnification</h2>
+    <p>You agree to indemnify and hold harmless GoodTek and its affiliates from any claims, liabilities, damages, and expenses (including reasonable attorneys' fees) arising out of your use of the Services, your violation of these Terms, or your violation of any rights of a third party.</p>
+
+    <h2><span class="num">13</span>Governing law and disputes</h2>
+    <p>These Terms are governed by the laws of the State of Wyoming, without regard to its conflict-of-laws rules. Any dispute arising out of or relating to these Terms or the Services will be resolved exclusively in the state or federal courts located in Wyoming, and you consent to personal jurisdiction in those courts. Nothing in this section prevents either party from seeking injunctive relief in any court of competent jurisdiction to protect its intellectual property rights.</p>
+
+    <h2><span class="num">14</span>Changes to these Terms</h2>
+    <p>We may update these Terms from time to time. If we make material changes, we will notify you through the Services or by other reasonable means. Your continued use of the Services after the changes take effect means you accept the updated Terms.</p>
+
+    <h2><span class="num">15</span>Contact</h2>
+    <p>If you have questions about these Terms, contact us at:</p>
+    <p>
+      <strong>GoodTek LLC</strong><br />
+      Attn: Legal<br />
+      Wyoming, United States<br />
+      <a href="mailto:legal@goodtek.co">legal@goodtek.co</a>
+    </p>
+
+  </div>
+</article>
+
+<footer>
+  <div class="wrap" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; max-width: var(--max);">
+    <span>© <span id="year"></span> GoodTek LLC.</span>
+    <span><a href="privacy.html">Privacy Policy</a> · <a href="index.html">Home</a></span>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

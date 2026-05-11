@@ -1,0 +1,1031 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>GoodTek · A software studio</title>
+<meta name="description" content="GoodTek is an independent software studio building cutting-edge consumer apps. Wyoming, USA." />
+<meta name="theme-color" content="#F4F2EC" />
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23F4F2EC'/><path d='M8 16 Q12 8 16 16 T24 16' stroke='%231E3FE0' stroke-width='2.4' fill='none' stroke-linecap='round'/></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --bg-2: #FAFAF7;
+    --bg-3: #F4F3EE;
+    --line: rgba(20, 20, 26, 0.08);
+    --line-2: rgba(20, 20, 26, 0.14);
+    --fg: #0F1115;
+    --fg-dim: #4A4D55;
+    --fg-mute: #8C8F97;
+    --accent: #0A66FF;
+    --accent-warm: #5B8DEF;
+    --serif: "Bricolage Grotesque", "Trebuchet MS", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --sans:  "Bricolage Grotesque", "Trebuchet MS", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --mono:  "Bricolage Grotesque", "Trebuchet MS", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --max: 1280px;
+    --pad: clamp(20px, 4vw, 56px);
+
+    --divider: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(20,20,26,0.10) 18%,
+      rgba(20,20,26,0.14) 50%,
+      rgba(20,20,26,0.10) 82%,
+      transparent 100%
+    );
+    --divider-v: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(20,20,26,0.10) 18%,
+      rgba(20,20,26,0.14) 50%,
+      rgba(20,20,26,0.10) 82%,
+      transparent 100%
+    );
+  }
+
+  nav.top.scrolled,
+  .hero,
+  section,
+  .stack,
+  .info-table,
+  .info-row,
+  .foot-bottom,
+  .approach-grid {
+    border-image-slice: 1;
+  }
+  .seam-b { position: relative; }
+  .seam-b::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+    background: var(--divider);
+    pointer-events: none;
+  }
+  .seam-t { position: relative; }
+  .seam-t::before {
+    content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px;
+    background: var(--divider);
+    pointer-events: none;
+  }
+
+  * { box-sizing: border-box; }
+  em, i { font-style: normal; }
+  html, body { margin: 0; padding: 0; }
+  html { background: var(--bg); color: var(--fg); }
+  body {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.55;
+    letter-spacing: 0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    font-variation-settings: "opsz" 16;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+  ::selection { background: var(--accent); color: #FFFFFF; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding-inline: var(--pad); }
+
+  .label {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 15px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--fg-mute);
+  }
+
+  /* ---------- Nav ---------- */
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    background: color-mix(in oklab, var(--bg) 70%, transparent);
+    border-bottom: 1px solid transparent;
+    transition: opacity .3s ease;
+  }
+  nav.top::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+    background: var(--divider);
+    opacity: 0;
+    transition: opacity .3s ease;
+    pointer-events: none;
+  }
+  nav.top.scrolled::after { opacity: 1; }
+  nav.top .row {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .brand {
+    display: inline-flex; align-items: center; gap: 11px;
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: -0.015em;
+    color: var(--fg);
+    font-variation-settings: "opsz" 24;
+  }
+  .brand em { color: var(--fg-dim); font-weight: 400; }
+  .brand .mark {
+    width: 32px; height: 32px;
+    display: inline-grid; place-items: center;
+    border-radius: 9px;
+    background: #0E1A4A;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.10),
+      inset 0 -1px 0 rgba(0,0,0,0.25),
+      0 1px 1px rgba(20,20,26,0.10),
+      0 6px 14px -8px rgba(14,26,74,0.45);
+    overflow: hidden;
+    position: relative;
+  }
+  .brand .mark .glyph {
+    font-family: "Bricolage Grotesque", "Trebuchet MS", "Helvetica Neue", sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    color: #F4F1E7;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    transform: translateY(0);
+    font-variation-settings: "opsz" 24;
+  }
+  .brand .mark::after {
+    content: "";
+    position: absolute;
+    left: 5px; right: 5px; bottom: 5px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(244,241,231,0.35), transparent);
+  }
+
+  /* ---------- Orb mounts ----------
+     The Mini Cortex reference renders BrainSphere at native 160px (so the
+     filaments have enough canvas pixels to draw legibly), then visually
+     shrinks it with CSS. Earlier attempts at native 32px produced an
+     invisible/washed-out canvas — that's the bug the user was reporting. */
+  .orb-mount {
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    /* isolate so mix-blend-mode on the green tint overlay blends ONLY with
+       the canvas underneath, not with the page background. */
+    isolation: isolate;
+    box-shadow: 0 2px 6px rgba(20,28,40,0.18), inset 0 0 0 1px rgba(255,255,255,0.4);
+  }
+  .orb-mount[data-orb="green"] {
+    box-shadow: 0 2px 6px rgba(10,30,28,0.4), inset 0 0 0 1px rgba(255,255,255,0.35);
+  }
+  /* BrainSphere always renders at native 160px (where filaments draw with
+     full detail). The .orb-stage is sized 160×160 in layout, then visually
+     scaled by CSS transform to the mount's display size. The browser GPU
+     bilinearly downsamples — high quality, preserves visible filaments. */
+  .orb-stage {
+    width: 160px; height: 160px;
+    position: absolute; top: 0; left: 0;
+    transform-origin: top left;
+    background: radial-gradient(ellipse at 50% 40%, #1a2332 0%, #0d1218 60%, #07090d 100%);
+  }
+  .orb-mount[data-orb="green"] .orb-stage {
+    background: radial-gradient(ellipse at 50% 40%, #0f2a1c 0%, #0a1610 60%, #050b08 100%);
+  }
+  .pill .orb-mount, .cta .orb-mount { margin-right: 4px; }
+  /* Footer orb sits at the baseline so it reads as the period after "GoodTek" */
+  .foot-mark .foot-orb { margin-left: 6px; vertical-align: baseline; }
+
+  nav.top ul {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; gap: 32px;
+    font-family: var(--serif); font-size: 17px; font-weight: 400;
+    letter-spacing: 0;
+    color: var(--fg-dim);
+  }
+  nav.top ul a:hover { color: var(--fg); }
+  nav.top .cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 7px 16px 8px;
+    border: 1px solid var(--line-2);
+    border-radius: 999px;
+    font-family: var(--serif); font-size: 17px; font-weight: 400;
+    letter-spacing: 0;
+    color: var(--fg);
+    transition: border-color .2s, background .2s;
+  }
+  nav.top .cta:hover { border-color: var(--accent); background: rgba(30,63,224,0.07); }
+
+  @media (max-width: 700px) {
+    nav.top ul { display: none; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    padding-top: clamp(56px, 9vw, 120px);
+    padding-bottom: clamp(64px, 10vw, 140px);
+    border-bottom: 1px solid transparent;
+    border-image: var(--divider) 1;
+    overflow: hidden;
+    background:
+      radial-gradient(1100px 520px at 88% -8%, rgba(10,102,255,0.06), transparent 60%),
+      radial-gradient(900px 440px at 8% 110%, rgba(10,102,255,0.04), transparent 60%),
+      var(--bg);
+  }
+  .hero .meta {
+    display: flex; gap: 18px; align-items: center;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .hero .meta .pill {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 8px 18px 8px 14px;
+    border: 1px solid var(--line-2);
+    border-radius: 999px;
+    font-family: var(--serif); font-size: 17px; font-weight: 500;
+    letter-spacing: -0.005em;
+    color: var(--fg);
+    background: rgba(255,255,255,0.6);
+  }
+  .hero .meta .label.inline {
+    font-family: var(--serif); font-size: 14px; font-weight: 400;
+    letter-spacing: 0; text-transform: none;
+    color: var(--fg-mute);
+  }
+
+  h1.headline {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(48px, 9vw, 124px);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    margin: 0 0 28px;
+    text-wrap: balance;
+    color: var(--fg);
+    font-variation-settings: "opsz" 72;
+  }
+  h1.headline em {
+    color: var(--fg-dim);
+    font-weight: 400;
+  }
+  h1.headline .accent {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .hero .lede {
+    max-width: 640px;
+    font-size: clamp(17px, 1.4vw, 20px);
+    line-height: 1.5;
+    color: var(--fg-dim);
+    margin: 0 0 40px;
+    text-wrap: pretty;
+  }
+
+  .hero .actions {
+    display: flex; gap: 12px; flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 12px 22px 13px;
+    border-radius: 999px;
+    font-family: var(--serif); font-size: 16px; font-weight: 400;
+    letter-spacing: 0;
+    border: 1px solid transparent;
+    transition: transform .15s ease, background .2s, border-color .2s;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary {
+    background: var(--fg); color: var(--bg);
+  }
+  .btn-primary:hover { background: #000; }
+  .btn-ghost {
+    border-color: var(--line-2); color: var(--fg);
+  }
+  .btn-ghost:hover { border-color: var(--fg-dim); }
+
+  /* Scope wave-canvas styles to #wave only — the previous `.hero canvas`
+     selector was hijacking the green orb's canvas inside the hero pill,
+     making it absolutely positioned, 640×420, masked, and 95% opacity. */
+  .hero #wave {
+    position: absolute;
+    right: calc(var(--pad) * -0.2);
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(640px, 50vw);
+    height: 420px;
+    pointer-events: none;
+    opacity: 0.95;
+    mask-image: radial-gradient(ellipse at center, #000 60%, transparent 92%);
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 60%, transparent 92%);
+  }
+  @media (max-width: 980px) {
+    .hero #wave {
+      position: relative;
+      right: auto; top: auto; transform: none;
+      width: 100%;
+      height: 220px;
+      margin-top: 36px;
+      opacity: 0.85;
+    }
+  }
+
+  /* ---------- Section frame ---------- */
+  section {
+    padding-block: clamp(64px, 9vw, 120px);
+    border-bottom: 1px solid transparent;
+    border-image: var(--divider) 1;
+    position: relative;
+  }
+  .section-head {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 32px;
+    margin-bottom: 56px;
+  }
+  .section-head h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(32px, 4.4vw, 56px);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    margin: 0;
+    max-width: 720px;
+    text-wrap: balance;
+    color: var(--fg);
+    font-variation-settings: "opsz" 48;
+  }
+  .section-head h2 em { color: var(--fg-dim); font-weight: 400; }
+  .section-head .label-col { padding-top: 8px; }
+  @media (max-width: 720px) {
+    .section-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 36px; }
+  }
+
+  /* ---------- Work cards ---------- */
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    background: var(--bg-2);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow:
+      0 1px 0 rgba(20,20,26,0.04),
+      0 12px 40px -16px rgba(20,20,26,0.10);
+  }
+  @media (max-width: 820px) {
+    .work-grid { grid-template-columns: 1fr; }
+  }
+  .work-card {
+    background: var(--bg);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-height: 320px;
+    position: relative;
+    overflow: hidden;
+    transition: background .3s;
+  }
+  .work-card:hover { background: #FAFAF7; }
+  .work-card + .work-card { box-shadow: inset 1px 0 0 rgba(20,20,26,0.06); }
+  @media (max-width: 820px) {
+    .work-card + .work-card { box-shadow: inset 0 1px 0 rgba(20,20,26,0.06); }
+  }
+  .work-grid > .work-card:nth-child(n+3) { box-shadow: inset 0 1px 0 rgba(20,20,26,0.06); }
+  .work-grid > .work-card:nth-child(2n):nth-child(n+3) { box-shadow: inset 1px 1px 0 rgba(20,20,26,0.06); }
+  .work-card .top-row {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    color: var(--fg-mute);
+    font-family: var(--serif); font-size: 14px;
+    letter-spacing: 0; text-transform: none;
+  }
+  .work-card .status {
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .work-card .status .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--fg-mute);
+  }
+  .work-card.live .status .dot { background: #1E9E62; box-shadow: 0 0 8px rgba(30,158,98,0.6); }
+  .work-card.dev .status .dot { background: var(--accent-warm); }
+  .work-card.research .status .dot { background: var(--fg-dim); }
+
+  .work-card h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(26px, 3.4vw, 38px);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin: auto 0 0;
+    font-variation-settings: "opsz" 32;
+  }
+  .work-card p {
+    font-size: 16px;
+    color: var(--fg-dim);
+    margin: 0;
+    max-width: 46ch;
+    text-wrap: pretty;
+  }
+  .work-card .visual {
+    position: absolute;
+    inset: auto 0 0 auto;
+    width: 60%; height: 60%;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  /* ---------- Approach ---------- */
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid transparent;
+    border-image: var(--divider) 1;
+  }
+  @media (max-width: 820px) {
+    .approach-grid { grid-template-columns: 1fr; }
+  }
+  .approach-cell {
+    padding: 32px 28px 32px 0;
+    background-image: var(--divider-v);
+    background-repeat: no-repeat;
+    background-size: 1px 100%;
+    background-position: right;
+  }
+  .approach-cell:last-child { background-image: none; padding-right: 0; }
+  @media (max-width: 820px) {
+    .approach-cell {
+      background-image: var(--divider);
+      background-size: 100% 1px;
+      background-position: bottom;
+      padding: 28px 0;
+    }
+    .approach-cell:last-child { background-image: none; }
+  }
+  .approach-cell .num {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--accent);
+    margin-bottom: 28px;
+  }
+  .approach-cell h4 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin: 0 0 12px;
+    color: var(--fg);
+    font-variation-settings: "opsz" 24;
+  }
+  .approach-cell p {
+    font-size: 16px;
+    color: var(--fg-dim);
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  /* ---------- Stack (capabilities ticker) ---------- */
+  .stack {
+    overflow: hidden;
+    position: relative;
+    padding-block: 22px;
+    margin-block: 0;
+    background: linear-gradient(180deg, #FAFAF7 0%, #F4F3EE 100%);
+  }
+  .stack::before, .stack::after {
+    content: ""; position: absolute; left: 0; right: 0; height: 1px;
+    background: var(--divider);
+    pointer-events: none;
+  }
+  .stack::before { top: 0; }
+  .stack::after { bottom: 0; }
+  .stack-track {
+    display: flex; gap: 56px;
+    white-space: nowrap;
+    animation: marquee 50s linear infinite;
+    font-family: var(--serif); font-size: 18px; font-weight: 400;
+    letter-spacing: 0;
+    color: var(--fg-dim);
+  }
+  .stack-track span { display: inline-flex; align-items: center; gap: 18px; }
+  .stack-track span::before {
+    content: "✦";
+    color: var(--accent);
+    font-style: normal;
+    font-size: 12px;
+    transform: translateY(-1px);
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ---------- Company ---------- */
+  .company {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 64px;
+  }
+  @media (max-width: 820px) {
+    .company { grid-template-columns: 1fr; gap: 36px; }
+  }
+  .company .pull {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(26px, 3vw, 38px);
+    line-height: 1.18;
+    letter-spacing: -0.012em;
+    margin: 0;
+    text-wrap: balance;
+    font-variation-settings: "opsz" 32;
+  }
+  .company .pull em { color: var(--fg-dim); font-weight: 400; }
+
+  .info-table {
+    position: relative;
+    font-family: var(--serif);
+    font-size: 16px;
+    background-image: var(--divider);
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    background-position: top;
+  }
+  .info-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 24px;
+    padding: 18px 0;
+    background-image: var(--divider);
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    background-position: bottom;
+  }
+  .info-row dt {
+    color: var(--fg-mute);
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 15px;
+    padding-top: 2px;
+  }
+  .info-row dd {
+    margin: 0;
+    color: var(--fg);
+    font-size: 17px;
+  }
+  .info-row dd a:hover { color: var(--accent); }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding-block: 64px 32px;
+  }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 64px;
+  }
+  @media (max-width: 820px) {
+    .foot-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    .foot-grid .lockup { grid-column: 1 / -1; }
+  }
+  footer h5 {
+    font-family: var(--serif);
+    font-size: 16px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--fg-mute);
+    margin: 0 0 18px;
+    font-weight: 400;
+  }
+  footer ul { list-style: none; padding: 0; margin: 0; }
+  footer ul li { margin-bottom: 10px; font-size: 16px; color: var(--fg-dim); }
+  footer ul li a:hover { color: var(--fg); }
+  .foot-mark {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(64px, 11vw, 160px);
+    line-height: 0.88;
+    letter-spacing: -0.035em;
+    margin: 0 0 16px;
+    color: var(--fg);
+    font-variation-settings: "opsz" 72;
+  }
+  .foot-mark em { color: var(--fg-dim); font-weight: 400; }
+  .foot-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    background-image: var(--divider);
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    background-position: top;
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--fg-mute);
+    letter-spacing: 0;
+  }
+  @media (max-width: 600px) {
+    .foot-bottom { flex-direction: column; gap: 12px; align-items: flex-start; }
+  }
+
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  .arr { display: inline-block; transition: transform .2s ease; }
+  a:hover .arr { transform: translate(2px, -2px); }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap row">
+    <a class="brand" href="#top" aria-label="GoodTek home">
+      <span class="mark" aria-hidden="true"><span class="glyph">G</span></span>
+      GoodTek
+    </a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#company">Company</a></li>
+    </ul>
+    <a class="cta" href="mailto:hi@goodtek.co"><span class="orb-mount" data-orb="blue" data-size="32"></span>hi@goodtek.co</a>
+  </div>
+</nav>
+
+<a id="top"></a>
+
+<header class="hero">
+  <div class="wrap" style="position: relative; z-index: 2;">
+    <div class="meta">
+      <span class="pill"><span class="orb-mount" data-orb="green" data-size="32"></span>Studio open · Active development</span>
+      <span class="label inline">Est. 2025 · Wyoming, USA</span>
+    </div>
+    <h1 class="headline">
+      Why us?<br />
+      We make <em>tek.</em><br />
+      <span class="accent">Tek good.</span>
+    </h1>
+    <p class="lede">
+      We bang rocks together. Rocks make app. App good. You happy. You tell friend. Friend happy too. Whole cave happy.
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#work">See what we're building <span class="arr">↗</span></a>
+      <a class="btn btn-ghost" href="mailto:hi@goodtek.co">Get in touch</a>
+    </div>
+  </div>
+  <canvas id="wave" aria-hidden="true"></canvas>
+</header>
+
+<section id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="label-col"><span class="label">01 · Work</span></div>
+      <h2>We make <em>thing.</em> Some thing live. Some thing still in cave.</h2>
+    </div>
+
+    <div class="work-grid">
+      <article class="work-card dev">
+        <div class="top-row">
+          <span class="kind">Voice · iOS</span>
+          <span class="status"><span class="dot"></span>In development</span>
+        </div>
+        <svg class="visual" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+          <g stroke="#1E3FE0" stroke-width="1.2" stroke-linecap="round">
+            <path d="M20 100 Q40 60 60 100 T100 100 T140 100 T180 100" opacity="0.9"/>
+            <path d="M20 110 Q45 80 70 110 T120 110 T170 110" opacity="0.5"/>
+            <path d="M20 90 Q50 50 80 90 T140 90 T180 90" opacity="0.3"/>
+          </g>
+        </svg>
+        <h3>OpenVoice</h3>
+        <p>You talk. Phone listen. Phone smart. Phone remember. No more typing with sad thumb. Mouth go brrr. Phone go yes. Private. Always private. We not see your words. Ever.</p>
+      </article>
+
+      <article class="work-card research">
+        <div class="top-row">
+          <span class="kind">Voice · Hotels &amp; Restaurants</span>
+          <span class="status"><span class="dot"></span>R&amp;D</span>
+        </div>
+        <svg class="visual" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+          <g stroke="#555259" stroke-width="1" opacity="0.5">
+            <rect x="40" y="40" width="120" height="120" rx="6"/>
+            <line x1="40" y1="80" x2="160" y2="80"/>
+            <line x1="40" y1="120" x2="160" y2="120"/>
+            <line x1="80" y1="40" x2="80" y2="160"/>
+            <line x1="120" y1="40" x2="120" y2="160"/>
+          </g>
+        </svg>
+        <h3>VesperVoice</h3>
+        <p>Phone ring. VesperVoice answer. Sound like real human. Helpful human. Take booking. Take order. Answer question. Hotel happy. Restaurant happy. Caller happy. Nobody know it not real human. (Maybe.)</p>
+      </article>
+
+      <article class="work-card research">
+        <div class="top-row">
+          <span class="kind">Health · iOS</span>
+          <span class="status"><span class="dot"></span>R&amp;D</span>
+        </div>
+        <svg class="visual" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+          <g stroke="#6B7CFF" stroke-width="1" fill="none" opacity="0.7">
+            <circle cx="100" cy="100" r="30"/>
+            <circle cx="100" cy="100" r="55"/>
+            <circle cx="100" cy="100" r="80"/>
+          </g>
+          <circle cx="100" cy="100" r="3" fill="#1E3FE0"/>
+        </svg>
+        <h3>HokuHealth</h3>
+        <p>Health plan made for you. Just you. Big meeting today? Plan adapt. Slept bad? Plan adapt. Ate weird thing at airport? Plan adapt. Not generic plan from app store. Real plan. Live plan. Move with you.</p>
+      </article>
+
+      <article class="work-card dev">
+        <div class="top-row">
+          <span class="kind">Sales · Web</span>
+          <span class="status"><span class="dot"></span>In development</span>
+        </div>
+        <svg class="visual" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+          <g stroke="#14141A" stroke-width="1" opacity="0.35">
+            <path d="M30 170 L60 110 L90 130 L120 70 L150 100 L180 50"/>
+            <line x1="30" y1="170" x2="180" y2="170"/>
+          </g>
+        </svg>
+        <h3>SurgeRocket</h3>
+        <p>Sales command center. You make it look how you want. Plug in agent. Agent do the boring stuff. You close the deal. Numbers go up. Boss happy. Boss buy team pizza. Pizza good.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="stack" aria-hidden="true">
+  <div class="stack-track">
+    <span>Swift &amp; SwiftUI</span><span>On-device speech</span><span>Realtime audio</span>
+    <span>Vector recall</span><span>WebRTC</span><span>Core ML</span>
+    <span>Apple silicon</span><span>watchOS</span><span>iPadOS</span>
+    <span>Encrypted at rest</span><span>Offline-capable</span><span>No third-party trackers</span>
+    <span>Swift &amp; SwiftUI</span><span>On-device speech</span><span>Realtime audio</span>
+    <span>Vector recall</span><span>WebRTC</span><span>Core ML</span>
+    <span>Apple silicon</span><span>watchOS</span><span>iPadOS</span>
+    <span>Encrypted at rest</span><span>Offline-capable</span><span>No third-party trackers</span>
+  </div>
+</div>
+
+<section id="approach">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="label-col"><span class="label">02 · Approach</span></div>
+      <h2>Small tribe. <em>Big</em> brain. Ship when ship good.</h2>
+    </div>
+
+    <div class="approach-grid">
+      <div class="approach-cell">
+        <div class="num">/01</div>
+        <h4>We go where rock newest</h4>
+        <p>New sensor. New chip. New shiny thing OS just made. We there first. Fun there. Most team scared of new rock. We not scared. We bang rock harder.</p>
+      </div>
+      <div class="approach-cell">
+        <div class="num">/02</div>
+        <h4>We not sell you</h4>
+        <p>Your data your data. Not our data. Not advertiser data. On-device when can. Encrypted when must. We say so plain in privacy paper. Read it. It short.</p>
+      </div>
+      <div class="approach-cell">
+        <div class="num">/03</div>
+        <h4>Make one good thing</h4>
+        <p>Better one app you keep two years than five apps you delete tomorrow. We slow on purpose. Slow make good. Good last. Last feel nice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="company">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="label-col"><span class="label">03 · Company</span></div>
+      <h2>Independent studio. <em>Nobody</em> own us.</h2>
+    </div>
+
+    <div class="company">
+      <p class="pull">
+        We pay own bills. <em>No investor. No boss. No board telling us what to make.</em> Just us, the work, and the people we ship it for. We like it that way. Stay that way.
+      </p>
+
+      <dl class="info-table">
+        <div class="info-row"><dt>Legal entity</dt><dd>GoodTek LLC</dd></div>
+        <div class="info-row"><dt>Jurisdiction</dt><dd>Wyoming, United States</dd></div>
+        <div class="info-row"><dt>Founded</dt><dd>2025</dd></div>
+        <div class="info-row"><dt>Markets</dt><dd>United States · App Store</dd></div>
+        <div class="info-row"><dt>Contact</dt><dd><a href="mailto:hi@goodtek.co">hi@goodtek.co</a></dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="lockup">
+        <h2 class="foot-mark">GoodTek<span class="orb-mount foot-orb" data-orb="blue" data-size="22"></span></h2>
+        <p style="max-width: 38ch; color: var(--fg-dim); margin: 0;">
+          We make app. App good. From Wyoming. Bye.
+        </p>
+      </div>
+      <div>
+        <h5>Studio</h5>
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#company">Company</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:hi@goodtek.co">hi@goodtek.co</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="mailto:hi@goodtek.co">Legal inquiries</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> GoodTek LLC. All rights reserved.</span>
+      <span>Wyoming, USA · v1.0</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="brain-sphere.jsx"></script>
+
+<script type="text/babel">
+  const { useRef: useOrbRef } = React;
+
+  // BrainSphere ALWAYS renders at native 160px (where it draws gorgeous
+  // dense filaments). The .orb-stage is 160×160 in layout, then CSS
+  // transform-scale shrinks it to whatever UI size the mount needs.
+  // The browser bilinearly downsamples — preserves filament detail.
+  const NATIVE = 160;
+
+  function MiniCortexOrb({ displaySize = 32, tintColor = null }) {
+    const dynRef = useOrbRef({ intensity: 1, spinSpeed: 0.18, electrify: 0, nodeElectrify: 0 });
+    const scale = displaySize / NATIVE;
+    return (
+      <div className="orb-stage" style={{ transform: `scale(${scale})` }}>
+        <BrainSphere
+          size={NATIVE}
+          seed={7}
+          filamentCount={28}
+          intensity={1}
+          dynamicsRef={dynRef}
+          reactive={false}
+          tintColor={tintColor}
+        />
+      </div>
+    );
+  }
+
+  document.querySelectorAll('.orb-mount').forEach((mount) => {
+    const displaySize = parseInt(mount.dataset.size, 10) || 32;
+    const isGreen = mount.dataset.orb === 'green';
+    mount.style.width = displaySize + 'px';
+    mount.style.height = displaySize + 'px';
+    ReactDOM.createRoot(mount).render(
+      <MiniCortexOrb displaySize={displaySize} tintColor={isGreen ? '#1aa050' : null} />
+    );
+  });
+</script>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const nav = document.querySelector('nav.top');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
+  }, { threshold: 0.15 });
+  reveals.forEach(el => io.observe(el));
+
+  (function () {
+    const canvas = document.getElementById('wave');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let w = 0, h = 0, dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+    let mouseX = 0.5, mouseY = 0.5;
+    const ACCENT = '#1E3FE0';
+
+    function resize() {
+      const rect = canvas.getBoundingClientRect();
+      w = rect.width; h = rect.height;
+      canvas.width = Math.floor(w * dpr);
+      canvas.height = Math.floor(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    window.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseX = (e.clientX - rect.left) / rect.width;
+      mouseY = (e.clientY - rect.top) / rect.height;
+    }, { passive: true });
+
+    const layers = [
+      { amp: 0.32, freq: 1.6, speed: 0.0006, hue: 226, alpha: 0.85, width: 1.4, phase: 0 },
+      { amp: 0.22, freq: 2.4, speed: -0.0009, hue: 232, alpha: 0.55, width: 1.1, phase: 1.2 },
+      { amp: 0.14, freq: 3.6, speed: 0.0014, hue: 240, alpha: 0.35, width: 0.9, phase: 2.4 },
+      { amp: 0.08, freq: 5.2, speed: -0.0019, hue: 220, alpha: 0.22, width: 0.8, phase: 3.6 },
+    ];
+
+    function draw(t) {
+      ctx.clearRect(0, 0, w, h);
+
+      ctx.save();
+      ctx.strokeStyle = 'rgba(20,20,26,0.06)';
+      ctx.lineWidth = 1;
+      const cells = 14;
+      for (let i = 0; i <= cells; i++) {
+        const y = (h / cells) * i;
+        ctx.beginPath();
+        ctx.moveTo(0, y); ctx.lineTo(w, y);
+        ctx.stroke();
+      }
+      ctx.restore();
+
+      ctx.save();
+      ctx.strokeStyle = 'rgba(20,20,26,0.18)';
+      ctx.setLineDash([2, 6]);
+      ctx.beginPath();
+      ctx.moveTo(0, h / 2); ctx.lineTo(w, h / 2);
+      ctx.stroke();
+      ctx.restore();
+
+      const cx = w / 2, cy = h / 2;
+      const reach = (mouseX - 0.5) * 0.8;
+
+      layers.forEach((L, idx) => {
+        ctx.save();
+        ctx.lineWidth = L.width;
+        ctx.lineCap = 'round';
+        ctx.shadowColor = ACCENT;
+        ctx.shadowBlur = idx === 0 ? 12 : 0;
+        ctx.strokeStyle = idx === 0
+          ? ACCENT
+          : `hsla(${L.hue}, 78%, ${52 - idx * 4}%, ${L.alpha})`;
+
+        ctx.beginPath();
+        const steps = 200;
+        for (let i = 0; i <= steps; i++) {
+          const x = (i / steps) * w;
+          const px = (i / steps) - 0.5;
+          const envelope = Math.exp(-Math.pow(px * 2.2, 2));
+          const mAmp = L.amp * (0.7 + (1 - mouseY) * 0.6);
+          const wave = Math.sin(px * Math.PI * 2 * L.freq + t * L.speed + L.phase + reach * 2);
+          const mod = 0.5 + 0.5 * Math.sin(px * Math.PI * 3 + t * 0.0004);
+          const y = cy + wave * mAmp * h * 0.5 * envelope * mod;
+          if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+        ctx.restore();
+      });
+
+      ctx.save();
+      ctx.fillStyle = ACCENT;
+      const dotCount = 5;
+      for (let i = 0; i < dotCount; i++) {
+        const px = (i + 1) / (dotCount + 1) - 0.5;
+        const x = (px + 0.5) * w;
+        const envelope = Math.exp(-Math.pow(px * 2.2, 2));
+        const wave = Math.sin(px * Math.PI * 2 * layers[0].freq + t * layers[0].speed + reach * 2);
+        const mAmp = layers[0].amp * (0.7 + (1 - mouseY) * 0.6);
+        const y = cy + wave * mAmp * h * 0.5 * envelope;
+        ctx.beginPath();
+        ctx.arc(x, y, 2.2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.restore();
+
+      requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+  })();
+</script>
+
+</body>
+</html>

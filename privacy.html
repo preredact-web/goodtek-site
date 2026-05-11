@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Privacy Policy — GoodTek</title>
+<meta name="description" content="GoodTek Privacy Policy." />
+<meta name="theme-color" content="#0A0A0B" />
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230A0A0B'/><path d='M8 16 Q12 8 16 16 T24 16' stroke='%23FF4D1F' stroke-width='2.4' fill='none' stroke-linecap='round'/></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0A0A0B; --bg-2: #111114;
+    --line: #1F1F22; --line-2: #2A2A2E;
+    --fg: #ECE8DC; --fg-dim: #A8A498; --fg-mute: #6B6862;
+    --accent: #FF4D1F;
+    --serif: "Instrument Serif", Georgia, serif;
+    --sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+    --mono: "Geist Mono", ui-monospace, Menlo, monospace;
+    --max: 880px;
+    --pad: clamp(20px, 4vw, 56px);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); }
+  body { font-family: var(--sans); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 100;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.92 0 0 0 0 0.91 0 0 0 0 0.86 0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: overlay; opacity: 0.5;
+  }
+  a { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line-2); }
+  a:hover { text-decoration-color: var(--accent); color: var(--accent); }
+  ::selection { background: var(--accent); color: #0A0A0B; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding-inline: var(--pad); }
+
+  nav.top {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(14px) saturate(120%);
+    background: color-mix(in oklab, var(--bg) 78%, transparent);
+    border-bottom: 1px solid var(--line);
+  }
+  nav.top .row {
+    max-width: 1280px; margin: 0 auto; padding-inline: var(--pad);
+    display: flex; align-items: center; justify-content: space-between; height: 64px;
+  }
+  .brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 14px; }
+  .brand a { text-decoration: none; }
+  .brand .mark {
+    width: 22px; height: 22px; display: inline-grid; place-items: center;
+    border: 1px solid var(--line-2); border-radius: 5px;
+    background: linear-gradient(180deg, #15151A, #0E0E11);
+  }
+  .back {
+    font-family: var(--mono); font-size: 12px; color: var(--fg-dim);
+    text-decoration: none; padding: 8px 14px; border: 1px solid var(--line-2); border-radius: 999px;
+  }
+  .back:hover { color: var(--fg); border-color: var(--fg-dim); text-decoration: none; }
+
+  header.doc {
+    padding: clamp(56px, 9vw, 110px) 0 clamp(40px, 6vw, 64px);
+    border-bottom: 1px solid var(--line);
+  }
+  .label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-mute); }
+  header.doc h1 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(40px, 6vw, 76px); line-height: 1; letter-spacing: -0.02em;
+    margin: 16px 0 20px;
+  }
+  header.doc h1 em { font-style: italic; color: var(--fg-dim); }
+  header.doc .meta { font-family: var(--mono); font-size: 12px; color: var(--fg-mute); display: flex; gap: 24px; flex-wrap: wrap; }
+
+  article.doc {
+    padding: clamp(40px, 6vw, 64px) 0 clamp(64px, 9vw, 120px);
+    color: var(--fg-dim);
+    font-size: 16px;
+  }
+  article.doc h2 {
+    font-family: var(--serif); font-weight: 400; color: var(--fg);
+    font-size: clamp(24px, 3vw, 32px); line-height: 1.15; letter-spacing: -0.015em;
+    margin: 56px 0 16px;
+  }
+  article.doc h2 .num {
+    display: inline-block; font-family: var(--mono); font-size: 12px;
+    color: var(--accent); margin-right: 14px; vertical-align: middle;
+    letter-spacing: 0.08em;
+  }
+  article.doc h3 {
+    font-family: var(--sans); font-weight: 500; color: var(--fg);
+    font-size: 16px; margin: 28px 0 8px;
+  }
+  article.doc p, article.doc li { text-wrap: pretty; }
+  article.doc ul { padding-left: 22px; }
+  article.doc li { margin-bottom: 8px; }
+  article.doc strong { color: var(--fg); font-weight: 500; }
+
+  footer {
+    padding: 32px 0;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono); font-size: 11px; color: var(--fg-mute);
+    letter-spacing: 0.06em;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="row">
+    <span class="brand">
+      <a href="index.html" style="display: inline-flex; align-items: center; gap: 10px;">
+        <span class="mark" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 14 14"><path d="M1 7 Q3.5 2 6 7 T11 7 T13 7" stroke="#FF4D1F" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+        </span>
+        GoodTek
+      </a>
+    </span>
+    <a class="back" href="index.html">← Back to home</a>
+  </div>
+</nav>
+
+<header class="doc">
+  <div class="wrap">
+    <span class="label">Legal</span>
+    <h1>Privacy <em>Policy</em></h1>
+    <div class="meta">
+      <span>Effective: January 1, 2026</span>
+      <span>Last updated: January 1, 2026</span>
+    </div>
+  </div>
+</header>
+
+<article class="doc">
+  <div class="wrap">
+
+    <p>This Privacy Policy describes how <strong>GoodTek LLC</strong> ("GoodTek," "we," "our," or "us") collects, uses, and shares information when you visit our website at goodtek.co (the "Site") or use any application, product, or service we provide (collectively, the "Services"). We are a Wyoming limited liability company and we operate our Services in the United States.</p>
+
+    <p>We believe privacy is the default, not a feature. We collect the minimum information needed to operate and improve our Services, and we will tell you plainly what we collect and why.</p>
+
+    <h2><span class="num">01</span>Information we collect</h2>
+
+    <h3>Information you provide</h3>
+    <p>When you contact us by email, sign up for an account, request support, or otherwise communicate with us, you may provide information such as your name, email address, and the contents of your message. We use this information to respond to you and to provide the Services you request.</p>
+
+    <h3>Information collected automatically</h3>
+    <p>When you visit our Site, we may automatically collect limited technical information, including:</p>
+    <ul>
+      <li>IP address and approximate, country-level location;</li>
+      <li>Browser type, operating system, and device characteristics;</li>
+      <li>Pages viewed, referring URL, and time spent on the Site;</li>
+      <li>Diagnostic information such as crash reports and basic performance metrics.</li>
+    </ul>
+    <p>We use this information to operate, secure, and improve the Site. We do not use it to build advertising profiles, and we do not sell it.</p>
+
+    <h3>Information collected through our applications</h3>
+    <p>Our applications are designed to be <strong>local-first and privacy-preserving</strong>. Where an application processes content on your device, that content stays on your device unless you explicitly choose to sync, share, or back it up. Any data sent to our servers is described in the application's in-app privacy disclosures and on its App Store privacy label.</p>
+    <p>Some applications use voice or audio input. Audio is processed only for the feature you have invoked (for example, transcription or a voice command), and is not used for advertising, sold to third parties, or used to train third-party models without your explicit consent.</p>
+
+    <h2><span class="num">02</span>How we use information</h2>
+    <p>We use information to:</p>
+    <ul>
+      <li>Provide, maintain, and improve our Services;</li>
+      <li>Respond to support requests and communicate with you;</li>
+      <li>Detect, investigate, and prevent fraud, abuse, and security incidents;</li>
+      <li>Comply with legal obligations and enforce our Terms of Service.</li>
+    </ul>
+
+    <h2><span class="num">03</span>How we share information</h2>
+    <p>We do not sell personal information. We share information only in the following limited circumstances:</p>
+    <ul>
+      <li><strong>Service providers.</strong> We use a small number of vendors (for example, hosting, error reporting, and email delivery providers) who process information on our behalf under written agreements that limit their use of that information.</li>
+      <li><strong>Legal requirements.</strong> We may disclose information if required by law, subpoena, or other valid legal process, or if we believe in good faith that disclosure is necessary to protect our rights, your safety, or the safety of others.</li>
+      <li><strong>Business transfers.</strong> If GoodTek is involved in a merger, acquisition, financing, or sale of assets, information may be transferred as part of that transaction, subject to this Privacy Policy.</li>
+    </ul>
+
+    <h2><span class="num">04</span>Data retention</h2>
+    <p>We retain information only for as long as necessary to provide our Services, comply with legal obligations, resolve disputes, and enforce our agreements. When information is no longer needed, we delete or anonymize it.</p>
+
+    <h2><span class="num">05</span>Security</h2>
+    <p>We use industry-standard administrative, technical, and physical safeguards designed to protect information from unauthorized access, disclosure, alteration, and destruction. We use encryption in transit and at rest where appropriate. No method of transmission or storage is perfectly secure, but we work to follow current best practices.</p>
+
+    <h2><span class="num">06</span>Your choices and rights</h2>
+    <p>Depending on where you live, you may have rights with respect to your personal information, including the right to access, correct, delete, or port your data, and the right to object to or restrict certain processing. To exercise any of these rights, contact us at <a href="mailto:privacy@goodtek.co">privacy@goodtek.co</a>. We will respond within the timeframe required by applicable law.</p>
+
+    <h3>California residents</h3>
+    <p>If you are a California resident, the California Consumer Privacy Act ("CCPA") and California Privacy Rights Act ("CPRA") provide additional rights, including the right to know what personal information we collect, the right to delete it, the right to correct inaccurate information, and the right to opt out of the sale or sharing of personal information. <strong>We do not sell or share personal information as those terms are defined under California law.</strong></p>
+
+    <h2><span class="num">07</span>Children's privacy</h2>
+    <p>Our Services are not directed to children under 13, and we do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us and we will delete it.</p>
+
+    <h2><span class="num">08</span>International users</h2>
+    <p>GoodTek is based in the United States. Our Services are operated and intended for users in the United States. If you access the Services from outside the U.S., you understand that your information will be transferred to and processed in the United States.</p>
+
+    <h2><span class="num">09</span>Third-party links</h2>
+    <p>Our Site and Services may contain links to third-party websites or services. We are not responsible for the privacy practices of those third parties, and we encourage you to read their privacy policies before providing them with information.</p>
+
+    <h2><span class="num">10</span>Changes to this policy</h2>
+    <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Last updated" date at the top of this page. If we make material changes, we will provide additional notice through the Site or by email where appropriate.</p>
+
+    <h2><span class="num">11</span>Contact us</h2>
+    <p>If you have any questions about this Privacy Policy or our privacy practices, please contact us at:</p>
+    <p>
+      <strong>GoodTek LLC</strong><br />
+      Attn: Privacy<br />
+      Wyoming, United States<br />
+      <a href="mailto:privacy@goodtek.co">privacy@goodtek.co</a>
+    </p>
+
+  </div>
+</article>
+
+<footer>
+  <div class="wrap" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; max-width: var(--max);">
+    <span>© <span id="year"></span> GoodTek LLC.</span>
+    <span><a href="terms.html">Terms of Service</a> · <a href="index.html">Home</a></span>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
